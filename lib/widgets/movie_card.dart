@@ -1,10 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:movie/model/movie/index.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({super.key});
+  final MovieModel data;
+  MovieCard(this.data, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final width = MediaQuery.of(context).size.width / 3 - 20;
+
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          width: width,
+          height: width * 1.5,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            image: DecorationImage(
+                image: NetworkImage(data.imgUrl), fit: BoxFit.fill),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          width: width,
+          child: Text(
+            data.title,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white),
+          ),
+        )
+      ],
+    );
   }
 }

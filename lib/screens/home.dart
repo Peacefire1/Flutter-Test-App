@@ -4,7 +4,7 @@ import 'package:movie/screens/profile.dart';
 import 'package:movie/screens/wishlist.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 2;
-  List<Widget> _totalPage = [MoviesPage(), WishListPage(), ProfilePage()];
+  final List<Widget> _totalPage = [MoviesPage(), WishListPage(), ProfilePage()];
 
   void setCurrentIndex(int val) {
     setState(() {
