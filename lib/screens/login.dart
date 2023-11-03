@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -61,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return "is Empty";
                     }
+                    return null;
                   },
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
@@ -82,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return "is Empty";
                     }
+                    return null;
                   },
                   style: TextStyle(color: Colors.white),
                   obscureText: true,
