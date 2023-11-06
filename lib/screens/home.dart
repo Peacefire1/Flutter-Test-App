@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/providers/common.dart';
 import 'package:movie/screens/movies.dart';
@@ -23,15 +24,15 @@ class HomePage extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.movie),
-                label: "Movie",
+                label: "mv".tr(),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.favorite),
-                label: "Favorite",
+                label: "fav".tr(),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
-                label: "Profile",
+                label: "pro".tr(),
               ),
             ],
           ),
