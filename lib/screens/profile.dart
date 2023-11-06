@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie/providers/common.dart';
 import 'package:movie/screens/login.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({super.key});
@@ -13,6 +15,17 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return LoginPage();
+    return Consumer<CommonProvider>(
+      builder: (context, provider, child) {
+        return provider.isLoggedIn
+            ? Center(
+                child: ElevatedButton(
+                  onPressed: provider.onLogOut,
+                  child: Text("Log Out"),
+                ),
+              )
+            : LoginPage();
+      },
+    );
   }
 }
