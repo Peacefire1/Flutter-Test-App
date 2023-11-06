@@ -21,7 +21,7 @@ class _MoviesPageState extends State<MoviesPage> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     return FutureBuilder(
         future: _getData(),
         builder: (context, snapshot) {
