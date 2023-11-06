@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:movie/global_key.dart';
 import 'package:movie/providers/common.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
 
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
-      Provider.of<CommonProvider>(context, listen: false).onLogin();
+      Provider.of<CommonProvider>(GlobalKeys.navigatorKey.currentContext!,
+              listen: false)
+          .onLogin();
     }
   }
 
