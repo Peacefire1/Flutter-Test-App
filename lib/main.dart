@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie/global_key.dart';
 import 'package:movie/providers/common.dart';
 import 'package:movie/screens/home.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CommonProvider()),
       ],
       child: MaterialApp(
+        navigatorKey: GlobalKeys.navigatorKey,
         title: "Movie App",
         home: HomePage(),
       ),
