@@ -45,5 +45,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	 <key>NSPhotoLibraryUsageDescription</key>
+	 <string>Зургийн санруу орох</string>
+	 <key>NSCameraUsageDescription</key>
+	 <string>Camera uu oroh shardlagtai</string>
+  <true/>
 </dict>
 </plist>
