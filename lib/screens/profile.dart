@@ -2,13 +2,20 @@ import 'dart:js';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:movie/global_key.dart';
 import 'package:movie/providers/common.dart';
 import 'package:movie/screens/login.dart';
 import 'package:provider/provider.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   void _onChangeLanguage() {
     final context = GlobalKeys.navigatorKey.currentContext!;
     if (context.locale.languageCode == Locale("mn", "MN").languageCode) {
@@ -16,6 +23,10 @@ class ProfilePage extends StatelessWidget {
     } else {
       context.setLocale(Locale("mn", "MN"));
     }
+  }
+
+  void _onImagePick(ImageSource source) async {
+    XFile? file = await ImagePicker().pickImage(source: source);
   }
 
   @override
@@ -27,6 +38,12 @@ class ProfilePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    ElevatedButton(
+                        onPressed: () => _onImagePick(ImageSource.gallery),
+                        child: Text("Upload Photo")),
+                    ElevatedButton(
+                        onPressed: () => _onImagePick(ImageSource.camera),
+                        child: Text("Camera")),
                     ElevatedButton(
                         onPressed: _onChangeLanguage,
                         child: Text(context.locale.languageCode)),
